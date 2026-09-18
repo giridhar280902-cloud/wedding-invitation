@@ -1,216 +1,149 @@
-*{
-margin:*;
-padding:0;
-box-sizing:border-box*
-}
+<!DOCTYPE html>
+<html lang="en">
 
-body{
-background:#*c0c0c;
-color:white;
-font-family*'*layfair Display',serif;
-overflow-x*hidden;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-section{
-min-height:100*h;
-padding:80px 30px;
-display*flex;
-flex-direction:column;
-justi*y*content*center;
-align-items:center;
-text-a*ign:center;
-}
+    <title>Wedding Invitation</title>
 
-.hidden{
-display:no*e;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-#welcome{
-background:
-linear*gradient(
-rgba(0,0,0,.7),
-rgba(0,0*0,.7)
-),
-url("../*ssets/bride-groom.jpg");
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap"
+        rel="stylesheet">
 
-backgrou*d-size:cover;
-background-position:*enter;
-}
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-.luxury-card{
-padding**0px;
-border:*px solid #d9b56d;
-back*rop*filter:blur(10px);
-background:*gba(0*0,0,.3);
-border*radius:20px;
-}
+<body>
 
-.monogram{
-font-si*e:2.5rem;
-*olor:#*6c17c;
-margin-bottom:20px;
-}
+    <section id="welcome">
 
-h*{
-font-family*'Great Vibes',cursive;
-font-size:5*em;
-color*#e6c17c;
-}
+        <div class="luxury-card">
 
-.amp{
-font-size*2rem;
-*argin:10px 0;
-}
+            <div class="monogram">A ♥ A</div>
 
-*invite-text{
-margin:*0px 0;
-*ont-size:1.2rem;
-}
+            <h1>Arjun</h1>
 
-button,
-*button{
+            <div class="amp">&amp;</div>
 
-background:#**b56d;
-color:black;
-padding:*4px 30px;
+            <h1>Aisha</h1>
 
-border:none;
-border*radius*50px;
+            <p class="invite-text">
+                You Are Cordially Invited
+            </p>
 
-cursor:pointer;
-font*weight*bold;
+            <button id="openBtn">
+                Open Invitation
+            </button>
 
-text-decoration*none;
+        </div>
 
-margin-top:25px;
-}
+    </section>
 
-#hero*
+    <section id="hero" class="hidden">
 
-*osition:relative;
-background:url*"../assets/br*de-groom.jpg");
+        <div class="overlay"></div>
 
-background-size:c*ver;
-background-position:center;
-}*
-.overlay{
+        <div class="hero-content">
 
-position:absolute;
+            <h2>Together With Their Families</h2>
 
-to*:0;
-left:0;
+            <h1 class="couple">
+                Arjun
+                <span>&amp;</span>
+                Aisha
+            </h1>
 
-width:100%;
-height:*00%*
+            <p>
+                Request the honour of your presence
+                at their wedding celebration.
+            </p>
 
-background:*gba(*,0,0,.6);
-}
+        </div>
 
-.hero-content{
-positi*n:relative;
-z-index:2;
-}
+    </section>
 
-.couple{*font-size:6rem;
-}
+    <section>
 
-.couple span{
-d*splay:block;
-font-size:3rem;
-}
+        <h2 class="section-title">
+            Save The Date
+        </h2>
 
-.s*ction-title{
-font-size:3rem;
-margi*-bottom:40px;
-color:#d9b56d;
-font-*amily:'Cinzel',serif;
-}
+        <div class="date-boxes">
 
-.date-box*s{
+            <div>
+                <span>14</span>
+                <p>Day</p>
+            </div>
 
-display:flex;
-gap:20px;
-flex-w*ap:wrap;
-justify-content:center;
-}*
-.date-boxes div{
+            <div>
+                <span>DEC</span>
+                <p>Month</p>
+            </div>
 
-border:1px soli* #d9b56d;
+            <div>
+                <span>2026</span>
+                <p>Year</p>
+            </div>
 
-padding:30px;
-min-width*120px;
-}
+        </div>
 
-.date-boxes span{
-font-s*ze:2rem;
-display:block;
-}
+        <div id="countdown"></div>
 
-.story{*
-max-width:700px;
+    </section>
 
-line-height:2;
-*font-size*1.2rem;
-}
+    <section>
 
-.timeline{
+        <h2 class="section-title">
+            Venue
+        </h2>
 
-max-width*600px;
-*idth:100%;
-}
+        <img
+            src="assets/images/venue.jpg"
+            alt="Venue"
+            class="venue-image">
 
-.event{
+        <h3>The Royal Palace</h3>
 
-margin:*0px 0;
+        <p>Mumbai, India</p>
 
-padding:20px;
+        <a
+            href="https://maps.google.com"
+            target="_blank"
+            class="button">
+            View Location
+        </a>
 
-border*left**px solid #d9b56d;
+    </section>
 
-background:#161*16;
-}
+    <section>
 
-.venue*image{
+        <h2 class="section-title">
+            Kindly RSVP
+        </h2>
 
-width:100%;
-max-width*800*x;
+        <a
+            href="https://forms.google.com"
+            target="_blank"
+            class="button">
+            RSVP Now
+        </a>
 
-border-radius:16px;
+    </section>
 
-margin-bo*tom:30px;
-}
+    <button id="musicToggle">🔇</button>
 
-#countdown{
+    <audio id="music" loop>
+        <source
+            src="assets/audio/wedding-music.mp3"
+            type="audio/mpeg">
+    </audio>
 
-margin*top*40px;
+    <script src="js/script.js"></script>
 
-font-size:2rem;
+</body>
 
-color:#**c17c;
-}
-
-#musicToggle{
-
-position:f*xed;
-
-bottom:20px;
-right:20px;
-
-z-*ndex*999;
-}
-
-@media(max-width:768px){
-
-*couple{
-font-size*4rem;
-}
-
-h1{
-font-size:3.5rem;
-}
-
-*section-title{
-font-size:2rem;
-}
-
-*
+</html>
