@@ -1,216 +1,222 @@
-*{
-margin:*;
-padding:0;
-box-sizing:border-box*
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-background:#*c0c0c;
-color:white;
-font-family*'*layfair Display',serif;
-overflow-x*hidden;
+body {
+    background: #0c0c0c;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
 }
 
-section{
-min-height:100*h;
-padding:80px 30px;
-display*flex;
-flex-direction:column;
-justi*y*content*center;
-align-items:center;
-text-a*ign:center;
+section {
+    min-height: 100vh;
+    padding: 80px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.hidden{
-display:no*e;
+.hidden {
+    display: none;
 }
 
-#welcome{
-background:
-linear*gradient(
-rgba(0,0,0,.7),
-rgba(0,0*0,.7)
-),
-url("../*ssets/bride-groom.jpg");
+#welcome {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.75)
+    ),
+    url("../assets/images/bride-groom.jpg");
 
-backgrou*d-size:cover;
-background-position:*enter;
+    background-size: cover;
+    background-position: center;
 }
 
-.luxury-card{
-padding**0px;
-border:*px solid #d9b56d;
-back*rop*filter:blur(10px);
-background:*gba(0*0,0,.3);
-border*radius:20px;
+.luxury-card {
+    padding: 40px;
+    border: 1px solid #d9b56d;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.4);
+    max-width: 500px;
 }
 
-.monogram{
-font-si*e:2.5rem;
-*olor:#*6c17c;
-margin-bottom:20px;
+.monogram {
+    font-size: 2.5rem;
+    color: #e6c17c;
+    margin-bottom: 20px;
 }
 
-h*{
-font-family*'Great Vibes',cursive;
-font-size:5*em;
-color*#e6c17c;
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #e6c17c;
 }
 
-.amp{
-font-size*2rem;
-*argin:10px 0;
+.amp {
+    font-size: 2rem;
+    margin: 15px 0;
 }
 
-*invite-text{
-margin:*0px 0;
-*ont-size:1.2rem;
+.invite-text {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
 }
 
 button,
-*button{
-
-background:#**b56d;
-color:black;
-padding:*4px 30px;
-
-border:none;
-border*radius*50px;
-
-cursor:pointer;
-font*weight*bold;
-
-text-decoration*none;
-
-margin-top:25px;
+.button {
+    background: #d9b56d;
+    color: black;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-#hero*
+#hero {
+    position: relative;
+    background: linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.6)
+    ),
+    url("../assets/images/bride-groom.jpg");
 
-*osition:relative;
-background:url*"../assets/br*de-groom.jpg");
-
-background-size:c*ver;
-background-position:center;
-}*
-.overlay{
-
-position:absolute;
-
-to*:0;
-left:0;
-
-width:100%;
-height:*00%*
-
-background:*gba(*,0,0,.6);
+    background-size: cover;
+    background-position: center;
 }
 
-.hero-content{
-positi*n:relative;
-z-index:2;
+.overlay {
+    position: absolute;
+    inset: 0;
 }
 
-.couple{*font-size:6rem;
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
-.couple span{
-d*splay:block;
-font-size:3rem;
+.couple {
+    font-size: 6rem;
 }
 
-.s*ction-title{
-font-size:3rem;
-margi*-bottom:40px;
-color:#d9b56d;
-font-*amily:'Cinzel',serif;
+.couple span {
+    display: block;
+    font-size: 3rem;
 }
 
-.date-box*s{
-
-display:flex;
-gap:20px;
-flex-w*ap:wrap;
-justify-content:center;
-}*
-.date-boxes div{
-
-border:1px soli* #d9b56d;
-
-padding:30px;
-min-width*120px;
+.section-title {
+    color: #d9b56d;
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    margin-bottom: 40px;
 }
 
-.date-boxes span{
-font-s*ze:2rem;
-display:block;
+.date-boxes {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.story{*
-max-width:700px;
-
-line-height:2;
-*font-size*1.2rem;
+.date-boxes div {
+    min-width: 120px;
+    padding: 25px;
+    border: 1px solid #d9b56d;
+    background: #151515;
+    border-radius: 12px;
 }
 
-.timeline{
-
-max-width*600px;
-*idth:100%;
+.date-boxes span {
+    font-size: 2rem;
+    display: block;
+    color: #e6c17c;
 }
 
-.event{
-
-margin:*0px 0;
-
-padding:20px;
-
-border*left**px solid #d9b56d;
-
-background:#161*16;
+.story {
+    max-width: 700px;
+    line-height: 2;
+    font-size: 1.2rem;
 }
 
-.venue*image{
-
-width:100%;
-max-width*800*x;
-
-border-radius:16px;
-
-margin-bo*tom:30px;
+.timeline {
+    width: 100%;
+    max-width: 600px;
 }
 
-#countdown{
-
-margin*top*40px;
-
-font-size:2rem;
-
-color:#**c17c;
+.event {
+    background: #161616;
+    border-left: 4px solid #d9b56d;
+    margin: 25px 0;
+    padding: 20px;
+    text-align: left;
+    border-radius: 8px;
 }
 
-#musicToggle{
-
-position:f*xed;
-
-bottom:20px;
-right:20px;
-
-z-*ndex*999;
+.event h3 {
+    color: #e6c17c;
+    margin-bottom: 8px;
 }
 
-@media(max-width:768px){
-
-*couple{
-font-size*4rem;
+.venue-image {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 18px;
+    margin-bottom: 30px;
 }
 
-h1{
-font-size:3.5rem;
+#countdown {
+    margin-top: 40px;
+    color: #e6c17c;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-*section-title{
-font-size:2rem;
+#musicToggle {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
 }
 
-*
+a.button {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 3.8rem;
+    }
+
+    .couple {
+        font-size: 4rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+}
