@@ -1,128 +1,216 @@
-The flow appears to be roughly:
+*{
+margin:*;
+padding:0;
+box-sizing:border-box*
+}
 
-Elegant sealed invitation/envelope
-White/ivory background
-Embossed floral decoration
-Wax-seal style monogram in the center
-User interacts with the invitation to open it.
-Main wedding invitation
-Ornate floral/gold border
-Couple's names prominently displayed
-Wedding imagery in the background
-Very elegant serif/calligraphy typography.
-Date section
-Month/date presented in individual decorative boxes.
-User taps/swipes through the invitation.
-Story/details section
-Additional wedding text
-Arabic/ornamental elements
-Decorative transitions.
-Timeline
-Different events with times.
-Decorative vertical layout.
-Venue section
-Large venue photograph
-Event time/date
-Location information.
+body{
+background:#*c0c0c;
+color:white;
+font-family*'*layfair Display',serif;
+overflow-x*hidden;
+}
 
-So I would not build this as a single static image. I'd make it an actual responsive webpage that reproduces the experience.
+section{
+min-height:100*h;
+padding:80px 30px;
+display*flex;
+flex-direction:column;
+justi*y*content*center;
+align-items:center;
+text-a*ign:center;
+}
 
-What I'd build for you
-                 OPEN
-                  ↓
-        ┌──────────────────┐
-        │                  │
-        │   ✿  D & A  ✿   │
-        │                  │
-        │   SEALED INVITE  │
-        │                  │
-        └──────────────────┘
-                  ↓
-             OPEN ANIMATION
-                  ↓
-        ┌──────────────────┐
-        │   THE INVITATION │
-        │                  │
-        │      GIRI        │
-        │        &         │
-        │      XXXXX       │
-        │                  │
-        │   14 DECEMBER    │
-        └──────────────────┘
-                  ↓
-              SCROLL
-                  ↓
-        Date → Story → Events
-                  ↓
-               Venue
-Tech stack
+.hidden{
+display:no*e;
+}
 
-I'd keep it simple:
+#welcome{
+background:
+linear*gradient(
+rgba(0,0,0,.7),
+rgba(0,0*0,.7)
+),
+url("../*ssets/bride-groom.jpg");
 
-Frontend
+backgrou*d-size:cover;
+background-position:*enter;
+}
 
-HTML
-CSS
-JavaScript
-CSS animations
-Canvas only if we decide to keep the rub/scratch interaction
+.luxury-card{
+padding**0px;
+border:*px solid #d9b56d;
+back*rop*filter:blur(10px);
+background:*gba(0*0,0,.3);
+border*radius:20px;
+}
 
-Hosting
+.monogram{
+font-si*e:2.5rem;
+*olor:#*6c17c;
+margin-bottom:20px;
+}
 
-GitHub Pages
+h*{
+font-family*'Great Vibes',cursive;
+font-size:5*em;
+color*#e6c17c;
+}
 
-Assets
+.amp{
+font-size*2rem;
+*argin:10px 0;
+}
 
-Your photos
-Floral/ornamental SVGs
-Fonts
-Background textures
+*invite-text{
+margin:*0px 0;
+*ont-size:1.2rem;
+}
 
-No database required.
+button,
+*button{
 
-One change I'd recommend
+background:#**b56d;
+color:black;
+padding:*4px 30px;
 
-The Reel is filmed with someone holding an iPhone and interacting with the website. We don't need to reproduce the physical phone.
+border:none;
+border*radius*50px;
 
-The actual user should get:
+cursor:pointer;
+font*weight*bold;
 
-WhatsApp link → opens invitation directly → full-screen mobile invitation
+text-decoration*none;
 
-That will look much more professional.
+margin-top:25px;
+}
 
-For example:
+#hero*
 
-┌─────────────────────────┐
-│                         │
-│          ✿             │
-│                         │
-│      YOU ARE            │
-│      INVITED            │
-│                         │
-│        GIRI             │
-│          &              │
-│       XXXXX             │
-│                         │
-│    14 • 12 • 2026       │
-│                         │
-│     ───────────         │
-│                         │
-│      TAP TO OPEN        │
-│                         │
-└─────────────────────────┘
+*osition:relative;
+background:url*"../assets/br*de-groom.jpg");
 
-Then the envelope can open with an animation, followed by the invitation pages.
+background-size:c*ver;
+background-position:center;
+}*
+.overlay{
 
-About the 3-month requirement
+position:absolute;
 
-We can put an expiry date into the JavaScript:
+to*:0;
+left:0;
 
-Invitation active:
-18 September 2026 → 18 December 2026
+width:100%;
+height:*00%*
 
-After that:
+background:*gba(*,0,0,.6);
+}
 
-This invitation has expired.
-Thank you for being part of our celebration.
+.hero-content{
+positi*n:relative;
+z-index:2;
+}
 
-GitHub Pages itself will continue hosting the files, but visitors will see the expiry screen.
+.couple{*font-size:6rem;
+}
+
+.couple span{
+d*splay:block;
+font-size:3rem;
+}
+
+.s*ction-title{
+font-size:3rem;
+margi*-bottom:40px;
+color:#d9b56d;
+font-*amily:'Cinzel',serif;
+}
+
+.date-box*s{
+
+display:flex;
+gap:20px;
+flex-w*ap:wrap;
+justify-content:center;
+}*
+.date-boxes div{
+
+border:1px soli* #d9b56d;
+
+padding:30px;
+min-width*120px;
+}
+
+.date-boxes span{
+font-s*ze:2rem;
+display:block;
+}
+
+.story{*
+max-width:700px;
+
+line-height:2;
+*font-size*1.2rem;
+}
+
+.timeline{
+
+max-width*600px;
+*idth:100%;
+}
+
+.event{
+
+margin:*0px 0;
+
+padding:20px;
+
+border*left**px solid #d9b56d;
+
+background:#161*16;
+}
+
+.venue*image{
+
+width:100%;
+max-width*800*x;
+
+border-radius:16px;
+
+margin-bo*tom:30px;
+}
+
+#countdown{
+
+margin*top*40px;
+
+font-size:2rem;
+
+color:#**c17c;
+}
+
+#musicToggle{
+
+position:f*xed;
+
+bottom:20px;
+right:20px;
+
+z-*ndex*999;
+}
+
+@media(max-width:768px){
+
+*couple{
+font-size*4rem;
+}
+
+h1{
+font-size:3.5rem;
+}
+
+*section-title{
+font-size:2rem;
+}
+
+*
