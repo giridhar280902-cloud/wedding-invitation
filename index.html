@@ -1,0 +1,128 @@
+The flow appears to be roughly:
+
+Elegant sealed invitation/envelope
+White/ivory background
+Embossed floral decoration
+Wax-seal style monogram in the center
+User interacts with the invitation to open it.
+Main wedding invitation
+Ornate floral/gold border
+Couple's names prominently displayed
+Wedding imagery in the background
+Very elegant serif/calligraphy typography.
+Date section
+Month/date presented in individual decorative boxes.
+User taps/swipes through the invitation.
+Story/details section
+Additional wedding text
+Arabic/ornamental elements
+Decorative transitions.
+Timeline
+Different events with times.
+Decorative vertical layout.
+Venue section
+Large venue photograph
+Event time/date
+Location information.
+
+So I would not build this as a single static image. I'd make it an actual responsive webpage that reproduces the experience.
+
+What I'd build for you
+                 OPEN
+                  ↓
+        ┌──────────────────┐
+        │                  │
+        │   ✿  D & A  ✿   │
+        │                  │
+        │   SEALED INVITE  │
+        │                  │
+        └──────────────────┘
+                  ↓
+             OPEN ANIMATION
+                  ↓
+        ┌──────────────────┐
+        │   THE INVITATION │
+        │                  │
+        │      GIRI        │
+        │        &         │
+        │      XXXXX       │
+        │                  │
+        │   14 DECEMBER    │
+        └──────────────────┘
+                  ↓
+              SCROLL
+                  ↓
+        Date → Story → Events
+                  ↓
+               Venue
+Tech stack
+
+I'd keep it simple:
+
+Frontend
+
+HTML
+CSS
+JavaScript
+CSS animations
+Canvas only if we decide to keep the rub/scratch interaction
+
+Hosting
+
+GitHub Pages
+
+Assets
+
+Your photos
+Floral/ornamental SVGs
+Fonts
+Background textures
+
+No database required.
+
+One change I'd recommend
+
+The Reel is filmed with someone holding an iPhone and interacting with the website. We don't need to reproduce the physical phone.
+
+The actual user should get:
+
+WhatsApp link → opens invitation directly → full-screen mobile invitation
+
+That will look much more professional.
+
+For example:
+
+┌─────────────────────────┐
+│                         │
+│          ✿             │
+│                         │
+│      YOU ARE            │
+│      INVITED            │
+│                         │
+│        GIRI             │
+│          &              │
+│       XXXXX             │
+│                         │
+│    14 • 12 • 2026       │
+│                         │
+│     ───────────         │
+│                         │
+│      TAP TO OPEN        │
+│                         │
+└─────────────────────────┘
+
+Then the envelope can open with an animation, followed by the invitation pages.
+
+About the 3-month requirement
+
+We can put an expiry date into the JavaScript:
+
+Invitation active:
+18 September 2026 → 18 December 2026
+
+After that:
+
+This invitation has expired.
+Thank you for being part of our celebration.
+
+GitHub Pages itself will continue hosting the files, but visitors will see the expiry screen.
