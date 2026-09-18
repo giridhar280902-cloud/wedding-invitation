@@ -1,19 +1,28 @@
-console.log("Wedding invitation loaded");
+console.log("Wedding Invitation Loaded");
 
-const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicToggle");
+const openBtn = document.getElementById("openBtn");
+const hero = document.getElementById("hero");
 
-if (music && musicBtn) {
-    musicBtn.addEventListener("click", () => {
-        if (music.paused) {
-            music.play();
-            musicBtn.textContent = "🔊";
-        } else {
-            music.pause();
-            musicBtn.textContent = "🔇";
+if (openBtn && hero) {
+    openBtn.addEventListener("click", () => {
+
+        const welcome = document.getElementById("welcome");
+
+        if (welcome) {
+            welcome.style.display = "none";
         }
+
+        hero.classList.remove("hidden");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
     });
 }
+
+const weddingDate = new Date("2026-12-14T18:00:00");
 
 function updateCountdown() {
 
@@ -21,7 +30,6 @@ function updateCountdown() {
 
     if (!countdown) return;
 
-    const weddingDate = new Date("2026-12-14T18:00:00");
     const now = new Date();
 
     const diff = weddingDate - now;
@@ -38,3 +46,22 @@ function updateCountdown() {
 }
 
 updateCountdown();
+
+const music = document.getElementById("music");
+const musicToggle = document.getElementById("musicToggle");
+
+if (music && musicToggle) {
+
+    musicToggle.addEventListener("click", () => {
+
+        if (music.paused) {
+            music.play();
+            musicToggle.innerHTML = "🔊";
+        } else {
+            music.pause();
+            musicToggle.innerHTML = "🔇";
+        }
+
+    });
+
+}
