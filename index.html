@@ -1,149 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Wedding Invitation</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Surya &amp; Jyothika — Nikkah Invitation</title>
+<meta name="description" content="You are invited to the Nikkah of Surya &amp; Jyothika — 14th December 2026, Grand Mall, Chennai.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%95%8C%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <section id="welcome">
+<!-- ===== Envelope intro ===== -->
+<div class="envelope-overlay" id="envelopeOverlay">
+  <div class="envelope">
+    <div class="envelope-corner corner-tl" aria-hidden="true"></div>
+    <div class="envelope-corner corner-tr" aria-hidden="true"></div>
+    <div class="envelope-corner corner-bl" aria-hidden="true"></div>
+    <div class="envelope-corner corner-br" aria-hidden="true"></div>
 
-        <div class="luxury-card">
+    <div class="envelope-flap" id="envelopeFlap" aria-hidden="true"></div>
+    <div class="envelope-glow" id="envelopeGlow" aria-hidden="true"></div>
 
-            <div class="monogram">A ♥ A</div>
+    <button class="seal" id="sealButton" type="button" aria-label="Open the invitation">
+      <span class="seal-ring">
+        <span class="seal-initials">S<span class="seal-amp">&amp;</span>J</span>
+      </span>
+    </button>
 
-            <h1>Arjun</h1>
+    <p class="envelope-hint" id="envelopeHint">Tap the seal to open</p>
+  </div>
+</div>
 
-            <div class="amp">&amp;</div>
+<!-- ===== Main invitation ===== -->
+<main class="invite" id="invite">
 
-            <h1>Aisha</h1>
+  <!-- Hero -->
+  <section class="section hero">
+    <p class="kicker">You are invited to the Nikkah of</p>
+    <h1 class="couple-names">Surya <span class="amp">&amp;</span> Jyothika</h1>
 
-            <p class="invite-text">
-                You Are Cordially Invited
-            </p>
+    <div class="arch-frame">
+      <img class="arch-photo" src="assets/images/bride-groom.jpg" alt="Surya and Jyothika">
+    </div>
 
-            <button id="openBtn">
-                Open Invitation
-            </button>
+    <p class="hero-meta">14th December 2026 &nbsp;·&nbsp; Chennai</p>
+    <div class="scroll-cue" aria-hidden="true">
+      <span></span>
+    </div>
+  </section>
 
-        </div>
+  <!-- The Date -->
+  <section class="section date-section">
+    <h2 class="section-title">Save the Date</h2>
+    <p class="section-subtitle">✦ Tap each card to reveal ✦</p>
 
-    </section>
+    <div class="date-cards">
+      <div class="date-card" data-reveal>
+        <div class="date-card-value">14</div>
+        <div class="date-card-overlay" role="button" tabindex="0" aria-label="Reveal the day"></div>
+        <p class="date-card-label">Day</p>
+      </div>
+      <div class="date-card" data-reveal>
+        <div class="date-card-value">December</div>
+        <div class="date-card-overlay" role="button" tabindex="0" aria-label="Reveal the month"></div>
+        <p class="date-card-label">Month</p>
+      </div>
+      <div class="date-card" data-reveal>
+        <div class="date-card-value">2026</div>
+        <div class="date-card-overlay" role="button" tabindex="0" aria-label="Reveal the year"></div>
+        <p class="date-card-label">Year</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="hero" class="hidden">
+  <!-- Invitation message -->
+  <section class="section message-section">
+    <p class="bismillah">Bismillah ar-Rahman ar-Rahim</p>
+    <div class="divider" aria-hidden="true"><span></span></div>
+    <p class="message-body">
+      Dear family &amp; friends, with hearts full of gratitude we joyfully
+      invite you to celebrate our Nikkah and share in our happiness.
+    </p>
+    <p class="verse">
+      “Among His signs: He placed love and mercy between spouses.”
+      <span class="verse-ref">— Qur’an 30:21 (paraphrased)</span>
+    </p>
+  </section>
 
-        <div class="overlay"></div>
+  <!-- Timeline -->
+  <section class="section timeline-section">
+    <h2 class="section-title">Wedding Timeline</h2>
+    <p class="section-subtitle">(timings approximate)</p>
 
-        <div class="hero-content">
+    <ol class="timeline">
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-time">9:00 AM</span>
+        <span class="timeline-label">Guest Arrival &amp; Welcome</span>
+      </li>
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-time">9:30 AM</span>
+        <span class="timeline-label">Nikkah Ceremony</span>
+      </li>
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-time">10:00 AM</span>
+        <span class="timeline-label">Reception Begins</span>
+      </li>
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-time">10:30 AM</span>
+        <span class="timeline-label">Bride &amp; Groom Arrival</span>
+      </li>
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-time">11:30 AM</span>
+        <span class="timeline-label">Lunch &amp; Celebrations</span>
+      </li>
+      <li class="timeline-item">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <span class="timeline-time">1:00 PM</span>
+        <span class="timeline-label">Farewell</span>
+      </li>
+    </ol>
+  </section>
 
-            <h2>Together With Their Families</h2>
+  <!-- Countdown -->
+  <section class="section countdown-section">
+    <h2 class="section-title">The Celebration Begins</h2>
+    <div class="countdown" id="countdown">
+      <div class="countdown-box"><span class="countdown-num" id="cd-days">00</span><span class="countdown-label">Days</span></div>
+      <div class="countdown-box"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-label">Hours</span></div>
+      <div class="countdown-box"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-label">Minutes</span></div>
+      <div class="countdown-box"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">Seconds</span></div>
+    </div>
+  </section>
 
-            <h1 class="couple">
-                Arjun
-                <span>&amp;</span>
-                Aisha
-            </h1>
+  <!-- Location -->
+  <section class="section location-section">
+    <h2 class="section-title">Venue</h2>
+    <p class="venue-name">Grand Mall</p>
+    <p class="venue-city">Chennai</p>
 
-            <p>
-                Request the honour of your presence
-                at their wedding celebration.
-            </p>
+    <div class="venue-photo-frame">
+      <img class="venue-photo" src="assets/images/venue.jpg" alt="Grand Mall, Chennai">
+    </div>
 
-        </div>
+    <a class="maps-button" href="https://www.google.com/maps/search/?api=1&query=Grand+Mall+Chennai" target="_blank" rel="noopener">
+      View on Google Maps
+    </a>
+  </section>
 
-    </section>
+  <footer class="footer">
+    <p class="footer-line">With love,</p>
+    <p class="footer-names">Surya <span class="amp">&amp;</span> Jyothika</p>
+  </footer>
 
-    <section>
+</main>
 
-        <h2 class="section-title">
-            Save The Date
-        </h2>
+<!-- ===== Music toggle ===== -->
+<audio id="bgMusic" src="assets/audio/wedding-music.mp3" loop preload="none"></audio>
+<button class="music-toggle" id="musicToggle" type="button" aria-label="Play background music" aria-pressed="false">
+  <span class="music-icon" id="musicIcon">♪</span>
+</button>
 
-        <div class="date-boxes">
-
-            <div>
-                <span>14</span>
-                <p>Day</p>
-            </div>
-
-            <div>
-                <span>DEC</span>
-                <p>Month</p>
-            </div>
-
-            <div>
-                <span>2026</span>
-                <p>Year</p>
-            </div>
-
-        </div>
-
-        <div id="countdown"></div>
-
-    </section>
-
-    <section>
-
-        <h2 class="section-title">
-            Venue
-        </h2>
-
-        <img
-            src="assets/images/venue.jpg"
-            alt="Venue"
-            class="venue-image">
-
-        <h3>The Royal Palace</h3>
-
-        <p>Mumbai, India</p>
-
-        <a
-            href="https://maps.google.com"
-            target="_blank"
-            class="button">
-            View Location
-        </a>
-
-    </section>
-
-    <section>
-
-        <h2 class="section-title">
-            Kindly RSVP
-        </h2>
-
-        <a
-            href="https://forms.google.com"
-            target="_blank"
-            class="button">
-            RSVP Now
-        </a>
-
-    </section>
-
-    <button id="musicToggle">🔇</button>
-
-    <audio id="music" loop>
-        <source
-            src="assets/audio/wedding-music.mp3"
-            type="audio/mpeg">
-    </audio>
-
-    <script src="js/script.js"></script>
-
+<script src="js/script.js"></script>
 </body>
-
 </html>

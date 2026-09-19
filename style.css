@@ -1,0 +1,664 @@
+/* ===================================================================
+   Surya & Jyothika — Nikkah Invitation
+   =================================================================== */
+
+:root {
+  --ivory: #FAF5E7;
+  --ivory-deep: #F0E6CC;
+  --paper: #FFFDF8;
+  --ink: #2C2213;
+  --ink-soft: #6B5E48;
+  --gold: #A9812E;
+  --gold-light: #D8BB6E;
+  --gold-pale: #EFD9A0;
+  --green: #1F3B2E;
+  --green-soft: rgba(31, 59, 46, 0.08);
+  --shadow: 0 18px 40px rgba(43, 32, 10, 0.12);
+  --radius: 18px;
+  --content-width: 560px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory-deep);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+h1, h2, h3, .display {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+a { color: inherit; }
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+img { max-width: 100%; display: block; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================================================
+   Envelope intro
+   =================================================================== */
+
+.envelope-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(120% 120% at 50% 20%, var(--ivory) 0%, var(--ivory-deep) 100%);
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.envelope-overlay.opened {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.envelope {
+  position: relative;
+  width: min(84vw, 340px);
+  height: min(84vw, 340px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  border: 1px solid var(--gold-pale);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}
+
+.envelope-corner {
+  position: absolute;
+  width: 34%;
+  height: 34%;
+  border: 1px solid var(--gold-pale);
+  opacity: 0.6;
+}
+.corner-tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.corner-tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+.corner-br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  background: linear-gradient(160deg, var(--gold-pale) 0%, var(--paper) 65%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.75s cubic-bezier(.65, 0, .35, 1);
+  border-bottom: 1px solid var(--gold-pale);
+}
+
+.envelope-overlay.opened .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: radial-gradient(circle at 50% 45%, rgba(216, 187, 110, 0.55) 0%, rgba(216, 187, 110, 0) 60%);
+  opacity: 0;
+  transition: opacity 0.8s ease 0.25s;
+  pointer-events: none;
+}
+
+.envelope-overlay.opened .envelope-glow {
+  opacity: 1;
+}
+
+.seal {
+  position: relative;
+  z-index: 2;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.envelope-overlay.opened .seal {
+  transform: scale(0.4);
+  opacity: 0;
+}
+
+.seal-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(155deg, var(--gold-pale), var(--paper) 55%, var(--gold-pale));
+  border: 1px solid var(--gold-light);
+  box-shadow: 0 6px 18px rgba(169, 129, 46, 0.35), inset 0 0 0 4px var(--paper);
+}
+
+.seal-initials {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.seal-amp {
+  font-style: normal;
+  font-size: 1rem;
+  margin: 0 2px;
+  color: var(--ink-soft);
+}
+
+.envelope-hint {
+  position: absolute;
+  bottom: -48px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+  transition: opacity 0.4s ease;
+}
+
+.envelope-overlay.opened .envelope-hint {
+  opacity: 0;
+}
+
+/* ===================================================================
+   Layout
+   =================================================================== */
+
+.invite {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  background: var(--ivory);
+  box-shadow: var(--shadow);
+  min-height: 100vh;
+}
+
+.section {
+  padding: 72px 32px;
+  text-align: center;
+  border-bottom: 1px solid var(--green-soft);
+}
+
+.section:last-of-type { border-bottom: none; }
+
+.section-title {
+  font-size: 2.1rem;
+  color: var(--green);
+}
+
+.section-subtitle {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+.divider span {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+.divider::before, .divider::after {
+  content: "";
+  height: 1px;
+  width: 60px;
+  background: var(--gold-pale);
+  margin: 0 12px;
+}
+
+/* ===================================================================
+   Hero
+   =================================================================== */
+
+.hero {
+  padding-top: 88px;
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory) 100%);
+}
+
+.kicker {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.5px;
+}
+
+.couple-names {
+  margin-top: 10px;
+  font-size: clamp(2.6rem, 9vw, 3.4rem);
+  font-style: italic;
+  color: var(--green);
+  line-height: 1.15;
+}
+
+.amp {
+  color: var(--gold);
+  margin: 0 6px;
+  font-style: normal;
+}
+
+.arch-frame {
+  width: min(72vw, 260px);
+  height: min(88vw, 320px);
+  margin: 36px auto 0;
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  overflow: hidden;
+  border: 1px solid var(--gold-pale);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.arch-frame::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(169, 129, 46, 0.4);
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  pointer-events: none;
+}
+
+.arch-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-meta {
+  margin-top: 28px;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+}
+
+.scroll-cue {
+  margin: 40px auto 0;
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(var(--gold-pale), transparent);
+  position: relative;
+}
+.scroll-cue span {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* ===================================================================
+   Date cards
+   =================================================================== */
+
+.date-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.date-card {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--gold-pale);
+  border-radius: 14px;
+  padding: 22px 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(43, 32, 10, 0.08);
+}
+
+.date-card-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.date-card-label {
+  margin-top: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+}
+
+.date-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold) 45%, var(--gold-light));
+  clip-path: circle(150% at var(--px, 50%) var(--py, 50%));
+  transition: clip-path 0.8s cubic-bezier(.6, 0, .3, 1);
+  cursor: pointer;
+}
+
+.date-card-overlay::after {
+  content: "✦";
+  color: var(--paper);
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.date-card-overlay.revealed {
+  clip-path: circle(0% at var(--px, 50%) var(--py, 50%));
+  pointer-events: none;
+}
+
+/* ===================================================================
+   Message
+   =================================================================== */
+
+.bismillah {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.message-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink);
+  max-width: 40ch;
+  margin: 0 auto;
+}
+
+.verse {
+  margin-top: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--green);
+  max-width: 38ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.verse-ref {
+  display: block;
+  margin-top: 10px;
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+}
+
+/* ===================================================================
+   Timeline
+   =================================================================== */
+
+.timeline {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0 0 0 28px;
+  text-align: left;
+  position: relative;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 5px;
+  width: 1px;
+  background: var(--gold-pale);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 30px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--gold);
+}
+
+.timeline-time {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+.timeline-label {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+/* ===================================================================
+   Countdown
+   =================================================================== */
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 32px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.countdown-box {
+  background: var(--paper);
+  border: 1px solid var(--gold-pale);
+  border-radius: 12px;
+  padding: 14px 4px;
+}
+
+.countdown-num {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.countdown-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+}
+
+/* ===================================================================
+   Location
+   =================================================================== */
+
+.venue-name {
+  margin-top: 18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--green);
+}
+
+.venue-city {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+}
+
+.venue-photo-frame {
+  margin: 28px auto 0;
+  max-width: 420px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--gold-pale);
+  box-shadow: var(--shadow);
+}
+
+.venue-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.maps-button {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 30px;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  color: var(--green);
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.maps-button:hover {
+  background: var(--green);
+  color: var(--paper);
+}
+
+/* ===================================================================
+   Footer
+   =================================================================== */
+
+.footer {
+  padding: 56px 32px 80px;
+  text-align: center;
+  background: var(--ivory);
+}
+
+.footer-line {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.footer-names {
+  margin-top: 8px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--green);
+}
+
+/* ===================================================================
+   Music toggle
+   =================================================================== */
+
+.music-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--gold-pale);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.music-toggle[aria-pressed="true"] {
+  animation: spin 6s linear infinite;
+}
+
+.music-toggle:active { transform: scale(0.92); }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===================================================================
+   Responsive
+   =================================================================== */
+
+@media (min-width: 600px) {
+  body { background: var(--ivory-deep); }
+  .invite { margin: 40px auto; border-radius: 24px; overflow: hidden; min-height: auto; }
+}
+
+@media (max-width: 360px) {
+  .section { padding: 56px 20px; }
+  .couple-names { font-size: 2.4rem; }
+}
